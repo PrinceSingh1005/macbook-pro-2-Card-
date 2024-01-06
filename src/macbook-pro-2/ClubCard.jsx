@@ -1,30 +1,28 @@
 import React from 'react'
-import Card from './Card'
-import logo from '../assets/Asce.png'
-import img1 from '../assets/image1.png'
-import img2 from '../assets/image2.png'
-import img3 from '../assets/image3.png'
-import img4 from '../assets/image4.png'
+import logo from '../assets/Asce1.png'
+import { Carousel } from './Carousel'
+
+const image = [
+    { src: "/image1.png", text: "House of Cards" },
+    { src: "/image2.png", text: "Real Estate" },
+    { src: "/image3.png", text: "Bridge Designing" },
+    { src: "/image4.png", text: "Shipwreck Cove" },
+    { src: "/image3.png", text: "Bridge Designing" },
+    { src: "/image4.png", text: "Shipwreck Cove" }
+]
+
 const ClubCard = () => {
-  return (
-    <div className="h-full w-full flex flex-col lg:flex-row bg-blue-300">
-      <div className="w-96 lg:w-1/4 md:h-[400px] lg:h-[600px] bg-blue-300 mx-auto lg:mx-0">
-        <img className='lg:h-fit mt-0 lg:mt-44' src={logo} alt='logo' />
-      </div>
-      <div className="w-full h-full flex flex-col items-center bg-blue-200 p-5">
-          <div className='w-7/10 h-fit lg:h-80 mt-60 grid lg:grid-cols-5 md:grid-cols-2 sm:grid-cols-1 md:justify-evenly gap-4 bg-white p-14 rounded-3xl text-sm md:text-lg'>
-            <Card img={img1} text="House of Cards" />
-            <Card img={img2} text="Real Estate" />
-            <Card img={img3} text="Bridge Designing" />
-            <Card img={img4} text="Shipwreck Cove" />
-            <div class="lg:top-[60px] border-2 border-gray-600 w-10 h-10 rounded-full flex items-center justify-center relative sm:ml-10 md:ml-28 lg:ml-5">
-              <div class="border-t-2 border-r-2 transform rotate-45 w-2 h-2 border-black"></div>
+    return (
+        <div className="h-screen w-full flex flex-col lg:flex-row bg-blue-300">
+            <div className="w-[350px] lg:w-1/5 h-[400px] lg:h-full mx-auto lg:mx-0 overflow-y-hidden overflow-x-hidden object-cover relative">
+                <img className='absolute w-72 h-fit lg:h-full lg:w-72 mx-auto top-[-380px] lg:top-0' src={logo} alt='logo' />
             </div>
-          </div>
-        <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded">Show All</button>
-      </div>
-    </div>
-  )
+            <div className="w-full lg:w-4/5 h-full lg:h-screen flex flex-col items-center bg-blue-200 p-5 justify-center">
+                <Carousel img={image} />
+                <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded">Show All</button>
+            </div>
+        </div>
+    )
 }
 
 export default ClubCard
